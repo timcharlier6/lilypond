@@ -4,7 +4,8 @@ Here’s a template for a README file that you can use for a GitHub repository c
 
 # LilyPond Notation Experimentation
 
-Welcome to the **LilyPond Notation Experimentation** repository! This collection contains various LilyPond scores that allow you to explore and experiment with music notation. The goal is to provide a starting point for those interested in learning and modifying music notation using the powerful LilyPond notation software.
+The song was written and encoded in midi using lilypond.
+Go to the web app : [Lightbulb Song](https://timcharlier6.github.io/lilypond/)
 
 ## About LilyPond
 
