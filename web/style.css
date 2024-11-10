@@ -1,0 +1,33 @@
+/* style.css */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #222;
+  font-family: Arial, sans-serif;
+}
+
+#score-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bar-row {
+  display: flex;
+  gap: 5px;
+}
+
+.lightbulb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #444;
+  transition: background-color 0.3s;
+}
+
+.lightbulb.on {
+  background-color: yellow;
+}
