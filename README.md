@@ -1,11 +1,9 @@
-Here’s a template for a README file that you can use for a GitHub repository containing LilyPond scores for experimenting with music notation:
-
----
-
 # LilyPond Notation Experimentation
 
 The song was written and encoded in midi using lilypond.
-Go to the web app : [Lightbulb Song](https://timcharlier6.github.io/lilypond/)
+Go to the web app :
+
+[Lightbulb Song](https://timcharlier6.github.io/lilypond/)
 
 ## About LilyPond
 
