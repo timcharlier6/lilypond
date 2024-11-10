@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lightbulb Score Player</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.js"></script>
+    <!-- @tonejs/midi library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.26/build/Midi.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Light Song</h1>
+    </header>
+
+    <main>
+      <div id="score-grid">
+        <div class="bar-row" id="melody-row"></div>
+        <div class="bar-row" id="bass-row"></div>
+      </div>
+      <script src="script.js"></script>
+    </main>
+    <footer>
+      <p>Click the button below to play the MIDI file.</p>
+      <button onclick="loadAndPlayMIDI()">Play MIDI</button>
+    </footer>
+  </body>
+</html>

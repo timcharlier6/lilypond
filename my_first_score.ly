@@ -8,6 +8,7 @@ upper = \relative c'' {
   \clef treble
   \key a \minor
   \time 3/4
+  \tempo 4 = 44
 
   a4 a b 
   gis gis gis
@@ -31,14 +32,15 @@ lower = \relative c {
   \clef bass
   \key a \minor
   \time 3/4
+  \tempo 4 = 44
 
   a'2.
   e
   a
   g \break
   g
-  g4 gis2
-  a4 f2
+  g
+  a
   e2. \break
   c
   d
