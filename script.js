@@ -71,11 +71,11 @@ async function load() {
     for (let j = 0; j < upperVoiceData[i].length; j++) {
       const bassNote = lowerVoiceData[i][j];
       const melodyNote = upperVoiceData[i][j];
-      let incrementUpIfSong0 = 1;
-      let incrementDownIfSong0 = 1;
+      let incrementUpIfSong0 = 0;
+      let incrementDownIfSong0 = 0;
       if (random_num === 0) {
-        incrementUpIfSong0 = 2;
-        incrementDownIfSong0 = 6;
+        incrementUpIfSong0 = 1;
+        incrementDownIfSong0 = 5;
       }
 
       if (melodyNote !== undefined) {

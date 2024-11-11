@@ -106,13 +106,13 @@ main {
   background-color: blue;
 }
 
-#b6.on,
-#u6.on {
-  background-color: green;
+#b0.on,
+#u0.on {
+  background-color: papayawhip;
 }
 
 .on {
-  animation: pulse 1s ease-in-out;
+  animation: pulse 3s ease-in;
 }
 
 @keyframes pulse {
@@ -120,7 +120,7 @@ main {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(2);
   }
   100% {
     transform: scale(1);
