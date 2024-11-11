@@ -1,10 +1,7 @@
 import random
-import pdb
 
-upper_pitches = [ 'gis','a', 'b', 'c', 'd', 'e']
-upper_notes = [-1, 0, 1, 2, 3, 4]
-lower_pitches = ['a', 'g', 'f', 'e', 'd', 'c']
-lower_notes = [0, -1, -2, -3, -4, -5]
+upper_pitches = [ 'g','a', 'b', 'd', 'e', 'g\'']
+lower_pitches = ['a', 'b', 'd', 'e', 'g', 'a\'']
 indent = '  '  
 
 def generate_upper_voice():
@@ -16,7 +13,7 @@ def generate_upper_voice():
             string += indent
             for k in range(3):
                 n = random.randint(0, 5)
-                subArr.append(upper_notes[n])
+                subArr.append(n)
                 string += upper_pitches[n] + '4 '
             string += '\n'
             numbers.append(subArr)
@@ -31,8 +28,8 @@ def generate_lower_voice():
         for j in range(4):
             subArr = []
             n = random.randint(0, 5)
-            subArr.append(lower_notes[n])
-            string += indent + lower_pitches[n] + '4'
+            subArr.append(n)
+            string += indent + lower_pitches[n] + '2.'
             string += '\n'
             numbers.append(subArr)
         string += indent + '\\break\n'
@@ -51,7 +48,7 @@ for i in range(1,10):
   composer = "Tim Charlier"
 }}
 
-upper = \\relative c'' {{
+upper = \\fixed c' {{
   \\clef treble
   \\key a \\minor
   \\time 3/4
@@ -59,7 +56,7 @@ upper = \\relative c'' {{
 {upper_voice[0]}
 }}
 
-lower = \\relative c {{
+lower = \\fixed c {{
   \\clef bass
   \\key a \\minor
   \\time 3/4
@@ -78,8 +75,7 @@ lower = \\relative c {{
 }}
     """
 
-    json = f"""
-{{
+    json = f"""{{
     "upper" : {upper_voice[1]},
     "lower": {lower_voice[1]}
 }}

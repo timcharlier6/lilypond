@@ -4,40 +4,40 @@
   composer = "Tim Charlier"
 }
 
-upper = \relative c'' {
+upper = \fixed c' {
   \clef treble
   \key a \minor
   \time 3/4
   \tempo 4 = 44
 
-  e4 d4 a4 
-  c4 gis4 c4 
-  gis4 a4 c4 
-  d4 c4 b4 
+  b4 d4 b4 
+  d4 e4 a4 
+  g4 g'4 g4 
+  g'4 g4 g4 
   \break
-  c4 c4 c4 
-  d4 b4 c4 
-  a4 gis4 a4 
-  gis4 d4 c4 
+  a4 g4 g'4 
+  a4 g4 g4 
+  g'4 g'4 g'4 
+  b4 g4 e4 
   \break
 
 }
 
-lower = \relative c {
+lower = \fixed c {
   \clef bass
   \key a \minor
   \time 3/4
   \tempo 4 = 44
 
-  e4
-  e4
-  g4
-  g4
+  d2.
+  e2.
+  g2.
+  g2.
   \break
-  f4
-  f4
-  a4
-  a4
+  e2.
+  e2.
+  a2.
+  d2.
   \break
 
 }
