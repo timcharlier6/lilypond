@@ -1,10 +1,5 @@
 # LilyPond Notation Experimentation
 
-The song was written and encoded in midi using lilypond.
-Go to the web app :
-
-[Lightbulb Song](https://timcharlier6.github.io/lilypond/)
-
 ## About LilyPond
 
 [LilyPond](http://lilypond.org/) is an open-source music engraving program that produces high-quality sheet music. It uses a text-based syntax to describe music, allowing for complete control over the notation and layout. This repository is intended to showcase different types of music notation and provide a framework for users to explore how different musical concepts can be expressed in LilyPond.
@@ -12,6 +7,11 @@ Go to the web app :
 ## Contents
 
 This repository contains a series of LilyPond files (.ly), each representing a different piece or experiment in music notation.
+
+Visit the web app :
+
+[Sound Painting](https://timcharlier6.github.io/lilypond/), with lilypond for music encoding, tone js for music playback, and css for design.
+
 
 To begin experimenting with the scores in this repository, you'll need to install LilyPond on your computer. Follow these steps to get started:
 
