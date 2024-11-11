@@ -104,6 +104,7 @@ async function load() {
 document.addEventListener("click", () => {
   clickCount++;
   if (clickCount % 2 !== 0) {
+    alert("Volume Audio Warning. Be careful!");
     load();
     //button.textContent = "Stop".toUpperCase();
   } else if (clickCount % 2 === 0) {
