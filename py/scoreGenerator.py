@@ -1,4 +1,5 @@
 import random
+import os
 
 upper_pitches = [ 'g','a', 'b', 'd', 'e', 'g\'']
 lower_pitches = ['a', 'b', 'd', 'e', 'g', 'a\'']
@@ -81,10 +82,18 @@ lower = \\fixed c {{
 }}
 """
 
-    filename = f"score_{i}.ly"
-    with open(filename, 'w') as file:
-        file.write(content)
+    ly_directory = "../ly"
+    json_directory = "../json"
 
-    filename = f"score_{i}.json"
-    with open(filename, 'w') as file:
-        file.write(json)
+    os.makedirs(ly_directory, exist_ok=True)
+    os.makedirs(json_directory, exist_ok=True)
+
+    ly_filename = f"score_{i}.ly"
+    ly_file_path = os.path.join(ly_directory, ly_filename)
+    with open(ly_file_path, 'w') as file:
+        file.write(f"{ly_file_path}")
+
+    json_filename = f"score_{i}.json"
+    json_file_path = os.path.join(json_directory, json_filename)
+    with open(json_file_path, 'w') as file:
+        file.write(f"{json_file_path}")

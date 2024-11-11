@@ -21,13 +21,13 @@ for (let i = 0; i <= 5; i++) {
 
 async function load() {
   let random_num = Math.floor(Math.random() * 9);
-  const jsonPath = `./score_${random_num}.json`;
+  const jsonPath = `./json/score_${random_num}.json`;
   const jsonResponse = await fetch(jsonPath);
   const jsonData = await jsonResponse.json();
   const upperVoiceData = jsonData.upper;
   const lowerVoiceData = jsonData.lower;
 
-  const midiUrl = `./score_${random_num}.midi`;
+  const midiUrl = `./midi/score_${random_num}.midi`;
   const response = await fetch(midiUrl);
   const arrayBuffer = await response.arrayBuffer();
   const midi = new Midi(arrayBuffer);
