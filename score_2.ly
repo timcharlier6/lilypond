@@ -1,6 +1,6 @@
 
 \header {
-  title = "My First LilyPond Score"
+  title = "Song 2"
   composer = "Tim Charlier"
 }
 
@@ -10,14 +10,17 @@ upper = \relative c'' {
   \time 3/4
   \tempo 4 = 44
 
-  a4 a b 
-  gis gis gis
-  a a a
-  b b b \break
-  c c d
-  b b c
-  a a b
-  gis gis gis \break
+  a4 b4 gis4 
+  d4 e4 d4 
+  d4 a4 c4 
+  gis4 a4 gis4 
+  \break
+  e4 e4 a4 
+  d4 c4 d4 
+  a4 d4 e4 
+  e4 c4 gis4 
+  \break
+
 }
 
 lower = \relative c {
@@ -26,14 +29,17 @@ lower = \relative c {
   \time 3/4
   \tempo 4 = 44
 
-  a'2.
-  e
-  a
-  g \break
-  g
-  g
-  a
-  e2. \break
+  a4
+  f4
+  a4
+  a4
+  \break
+  c4
+  d4
+  c4
+  f4
+  \break
+
 }
 
 \score {
@@ -45,3 +51,4 @@ lower = \relative c {
   \layout { }
   \midi { }
 }
+    

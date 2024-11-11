@@ -1,6 +1,7 @@
 const bpm = 44;
 const beatDuration = 60000 / bpm; // Duration of one beat in milliseconds
 let clickCount = 0;
+/*
 const twoVoicesScore = [
   [[0], [0, 0, 1]], // bar 1
   [[-3], [-1, -1, -1]], // bar 2
@@ -10,7 +11,6 @@ const twoVoicesScore = [
   [[-1], [1, 1, 2]], // bar 6
   [[0], [0, 0, 1]], // bar 7
   [[-3], [-1, -1, -1]], // bar 8
-  /*
   [[-5], [0, 0, 1]], // bar 9
   [[-4], [-1, -1, -1]], // bar 10
   [[-3], [0, 0, 0]], // bar 11
@@ -19,10 +19,10 @@ const twoVoicesScore = [
   [[-2], [1, 1, 2]], // bar 14
   [[-3], [0, 0, 1]], // bar 15
   [[-3], [-1, -1, -1]], // bar 16
-  */
 ];
+  */
 
-function initLayout() {
+function init() {
   const bassRow = document.getElementById("bass-row");
   const melodyRow = document.getElementById("melody-row");
   const button = document.getElementById("button");
@@ -46,7 +46,24 @@ function initLayout() {
   }
 }
 
-initLayout();
+function fetchData() {
+  fetch("score_0.json") // URL relative to the server
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json(); // Parse JSON
+    })
+    .then((data) => {
+      console.log(data); // Print the JSON data
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
+}
+
+init();
+fetchData();
 
 async function loadAndPlayMIDI() {
   // Load the MIDI file
