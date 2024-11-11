@@ -19,14 +19,22 @@ for (let i = 0; i <= 5; i++) {
   melodyRow.appendChild(melodyBulb);
 }
 
+function lightUpBulb(id) {
+  const bulb = document.getElementById(id);
+  if (bulb) {
+    bulb.classList.add("on");
+  }
+}
+
+function turnOffBulb(id) {
+  const bulb = document.getElementById(id);
+  if (bulb) {
+    bulb.classList.remove("on");
+  }
+}
+
 async function load() {
   let random_num = Math.floor(Math.random() * 9);
-  const jsonPath = `./json/score_${random_num}.json`;
-  const jsonResponse = await fetch(jsonPath);
-  const jsonData = await jsonResponse.json();
-  const upperVoiceData = jsonData.upper;
-  const lowerVoiceData = jsonData.lower;
-
   const midiUrl = `./midi/score_${random_num}.midi`;
   const response = await fetch(midiUrl);
   const arrayBuffer = await response.arrayBuffer();
@@ -52,20 +60,15 @@ async function load() {
       );
     });
   });
+  await Tone.start();
+  Tone.Transport.start();
+  ///////////////////////////
 
-  function lightUpBulb(id) {
-    const bulb = document.getElementById(id);
-    if (bulb) {
-      bulb.classList.add("on");
-    }
-  }
-
-  function turnOffBulb(id) {
-    const bulb = document.getElementById(id);
-    if (bulb) {
-      bulb.classList.remove("on");
-    }
-  }
+  const jsonPath = `./json/score_${random_num}.json`;
+  const jsonResponse = await fetch(jsonPath);
+  const jsonData = await jsonResponse.json();
+  const upperVoiceData = jsonData.upper;
+  const lowerVoiceData = jsonData.lower;
 
   for (let i = 0; i < upperVoiceData.length; i++) {
     for (let j = 0; j < upperVoiceData[i].length; j++) {
@@ -96,9 +99,6 @@ async function load() {
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
-
-  await Tone.start();
-  Tone.Transport.start();
 }
 
 document.addEventListener("click", () => {
