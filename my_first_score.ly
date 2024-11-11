@@ -18,14 +18,6 @@ upper = \relative c'' {
   b b c
   a a b
   gis gis gis \break
-  a4 a b 
-  gis gis gis
-  a a a
-  b b b \break
-  c c d
-  b b c
-  a a b
-  gis gis gis \break
 }
 
 lower = \relative c {
@@ -42,14 +34,6 @@ lower = \relative c {
   g
   a
   e2. \break
-  c
-  d
-  e
-  g
-  g
-  f
-  e
-  e
 }
 
 \score {

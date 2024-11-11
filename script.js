@@ -1,8 +1,6 @@
-// Define parameters
 const bpm = 44;
 const beatDuration = 60000 / bpm; // Duration of one beat in milliseconds
-
-// Score definition
+let clickCount = 0;
 const twoVoicesScore = [
   [[0], [0, 0, 1]], // bar 1
   [[-3], [-1, -1, -1]], // bar 2
@@ -12,6 +10,7 @@ const twoVoicesScore = [
   [[-1], [1, 1, 2]], // bar 6
   [[0], [0, 0, 1]], // bar 7
   [[-3], [-1, -1, -1]], // bar 8
+  /*
   [[-5], [0, 0, 1]], // bar 9
   [[-4], [-1, -1, -1]], // bar 10
   [[-3], [0, 0, 0]], // bar 11
@@ -20,18 +19,21 @@ const twoVoicesScore = [
   [[-2], [1, 1, 2]], // bar 14
   [[-3], [0, 0, 1]], // bar 15
   [[-3], [-1, -1, -1]], // bar 16
+  */
 ];
 
-// Initialize the score grid with light bulbs
-function initScoreGrid() {
+function initLayout() {
   const bassRow = document.getElementById("bass-row");
   const melodyRow = document.getElementById("melody-row");
+  const button = document.getElementById("button");
+
+  button.textContent = "Start".toUpperCase();
 
   // Create melody lightbulbs (for values -1 to 3)
   for (let i = -1; i <= 4; i++) {
     const melodyBulb = document.createElement("div");
     melodyBulb.classList.add("lightbulb");
-    melodyBulb.id = `melody-${i}`; // Assign id for melody bulbs
+    melodyBulb.id = `u${i + 2}`; // Assign id for melody bulbs
     melodyRow.appendChild(melodyBulb);
   }
 
@@ -39,13 +41,12 @@ function initScoreGrid() {
   for (let i = -5; i <= 0; i++) {
     const bassBulb = document.createElement("div");
     bassBulb.classList.add("lightbulb");
-    bassBulb.id = `bass-${i}`; // Assign id for bass bulbs
+    bassBulb.id = `b${i + 6}`; // Assign id for bass bulbs
     bassRow.appendChild(bassBulb);
   }
 }
 
-// Initialize the score grid and play the score
-initScoreGrid();
+initLayout();
 
 async function loadAndPlayMIDI() {
   // Load the MIDI file
@@ -107,8 +108,8 @@ async function loadAndPlayMIDI() {
         const melodyNote = upperVoice[i];
 
         // Light up the corresponding bass and melody bulbs
-        if (bassNote !== undefined) lightUpBulb(`bass-${bassNote}`);
-        if (melodyNote !== undefined) lightUpBulb(`melody-${melodyNote}`);
+        if (melodyNote !== undefined) lightUpBulb(`u${melodyNote + 2}`);
+        if (bassNote !== undefined) lightUpBulb(`b${bassNote + 6}`);
 
         // Wait for the beat duration
         let delay = 100;
@@ -118,8 +119,8 @@ async function loadAndPlayMIDI() {
         );
 
         // Turn off the bulbs after the beat
-        if (bassNote !== undefined) turnOffBulb(`bass-${bassNote}`);
-        if (melodyNote !== undefined) turnOffBulb(`melody-${melodyNote}`);
+        if (melodyNote !== undefined) turnOffBulb(`u${melodyNote + 2}`);
+        if (bassNote !== undefined) turnOffBulb(`b${bassNote + 6}`);
         await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
@@ -131,3 +132,13 @@ async function loadAndPlayMIDI() {
   await Tone.start();
   Tone.Transport.start();
 }
+
+document.addEventListener("click", () => {
+  clickCount++;
+  if (clickCount % 2 !== 0) {
+    loadAndPlayMIDI();
+    button.textContent = "Stop".toUpperCase();
+  } else if (clickCount % 2 === 0) {
+    location.reload();
+  }
+});

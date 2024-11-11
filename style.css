@@ -27,9 +27,29 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin: 2rem auto;
-  color: yellow;
   font-family: Calibri;
+}
+
+h1 {
+  text-decoration: wavy;
+  font-weight: bold;
+  font-size: 4rem;
+  font-style: oblique;
+  letter-spacing: 0.2rem;
 }
 
 main {
@@ -54,19 +74,56 @@ main {
 .lightbulb {
   width: 10vw;
   height: 10vw;
+  margin: 1vw 3vw;
   border-radius: 50%;
-  background-color: #444;
+  background-color: rgba(200, 200, 200, 0.2);
   transition: background-color 0.3s;
 }
 
-.lightbulb.on {
+/* Lightbulb color variations */
+#b1.on,
+#u1.on {
   background-color: yellow;
 }
 
-footer button {
-  margin: 1rem auto 0;
+#b2.on,
+#u2.on {
+  background-color: orange;
+}
+
+#b3.on,
+#u3.on {
+  background-color: red;
+}
+
+#b4.on,
+#u4.on {
+  background-color: purple;
+}
+
+#b5.on,
+#u5.on {
+  background-color: blue;
+}
+
+#b6.on,
+#u6.on {
+  background-color: green;
+}
+
+#button {
+  margin: 1rem auto 2rem;
   padding: 1rem;
+  font-size: 2rem;
+  color: #eee;
   border-radius: 10%;
   background-color: green;
-  color: yellow;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#button:hover {
+  background-color: darkgreen;
+  transform: scale(2);
 }
