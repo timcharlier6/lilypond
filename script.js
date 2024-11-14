@@ -70,33 +70,37 @@ async function load() {
   const upperVoiceData = jsonData.upper;
   const lowerVoiceData = jsonData.lower;
 
-  for (let i = 0; i < upperVoiceData.length; i++) {
-    for (let j = 0; j < upperVoiceData[i].length; j++) {
-      const bassNote = lowerVoiceData[i][j];
-      const melodyNote = upperVoiceData[i][j];
-      let incrementUpIfSong0 = 0;
-      let incrementDownIfSong0 = 0;
-      if (random_num === 0) {
-        incrementUpIfSong0 = 1;
-        incrementDownIfSong0 = 5;
+  while (true) {
+    for (let i = 0; i < upperVoiceData.length; i++) {
+      for (let j = 0; j < upperVoiceData[i].length; j++) {
+        const bassNote = lowerVoiceData[i][j];
+        const melodyNote = upperVoiceData[i][j];
+        let incrementUpIfSong0 = 0;
+        let incrementDownIfSong0 = 0;
+        if (random_num === 0) {
+          incrementUpIfSong0 = 1;
+          incrementDownIfSong0 = 5;
+        }
+
+        if (melodyNote !== undefined) {
+          lightUpBulb(`u${melodyNote + incrementUpIfSong0}`);
+        }
+        if (bassNote !== undefined) {
+          lightUpBulb(`b${bassNote + incrementDownIfSong0}`);
+        }
+
+        let delay = 100;
+
+        await new Promise((resolve) =>
+          setTimeout(resolve, beatDuration - delay),
+        );
+
+        if (melodyNote !== undefined)
+          turnOffBulb(`u${melodyNote + incrementUpIfSong0}`);
+        if (bassNote !== undefined)
+          turnOffBulb(`b${bassNote + incrementDownIfSong0}`);
+        await new Promise((resolve) => setTimeout(resolve, delay));
       }
-
-      if (melodyNote !== undefined) {
-        lightUpBulb(`u${melodyNote + incrementUpIfSong0}`);
-      }
-      if (bassNote !== undefined) {
-        lightUpBulb(`b${bassNote + incrementDownIfSong0}`);
-      }
-
-      let delay = 100;
-
-      await new Promise((resolve) => setTimeout(resolve, beatDuration - delay));
-
-      if (melodyNote !== undefined)
-        turnOffBulb(`u${melodyNote + incrementUpIfSong0}`);
-      if (bassNote !== undefined)
-        turnOffBulb(`b${bassNote + incrementDownIfSong0}`);
-      await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
 }
