@@ -9,9 +9,11 @@ function getRandomColor() {
 
 function createCircle() {
   const circle = document.createElement("div");
-  const size = Math.random() * 20 + 5;
-  const x = Math.random() * (window.innerWidth - size);
-  const y = Math.random() * (window.innerHeight - size);
+  const size = Math.floor(Math.random() * 20 + 5);
+  const max = 100 - size;
+  const x = Math.floor(Math.random() * max);
+  const y = Math.floor(Math.random() * max);
+  //console.log(`circle ${size}\t${x}-${y}`);
 
   circle.className = "circle";
   circle.style.width = `${size}vw`;
@@ -28,4 +30,4 @@ function createCircle() {
 }
 
 createCircle();
-setInterval(createCircle, 2000);
+setInterval(createCircle, 4000);
