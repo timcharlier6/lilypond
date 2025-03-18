@@ -9,15 +9,15 @@ function getRandomColor() {
 
 function createCircle() {
   const circle = document.createElement("div");
-  const size = Math.random() * 200 + 50;
+  const size = Math.random() * 20 + 5;
   const x = Math.random() * (window.innerWidth - size);
   const y = Math.random() * (window.innerHeight - size);
 
   circle.className = "circle";
-  circle.style.width = `${size}px`;
-  circle.style.height = `${size}px`;
-  circle.style.left = `${x}px`;
-  circle.style.top = `${y}px`;
+  circle.style.width = `${size}vw`;
+  circle.style.height = `${size}vw`;
+  circle.style.left = `${x}vw`;
+  circle.style.top = `${y}vh`;
   circle.style.backgroundColor = getRandomColor();
 
   document.body.appendChild(circle);
