@@ -51,22 +51,3 @@ body {
         opacity: 0;
     }
 }
-
-/* Media query for Android devices */
-@media screen and (max-width: 480px) {
-    body {
-        background: linear-gradient(
-            90deg,
-            rgba(0, 5, 255, 1) 0%,
-            rgba(255, 0, 0, 1) 50%,
-            rgba(0, 255, 3, 1) 100%
-        );
-        font-size: 14px;
-    }
-
-    .circle {
-        animation: growAndFade 10s ease-out forwards;
-    }
-
-    /* Add any other styles specific to Android devices here */
-}
